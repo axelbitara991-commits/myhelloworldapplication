@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  host: <%= ENV.fetch("DB_HOST", "db") %>
+  username: <%= ENV.fetch("DB_USERNAME", "myhelloworldapplication") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "password") %>
+  pool: 5
+
+development:
+  <<: *default
+  database: myhelloworldapplication_development
+
+test:
+  <<: *default
+  database: myhelloworldapplication_test
+
+production:
+  <<: *default
+  database: myhelloworldapplication_production
